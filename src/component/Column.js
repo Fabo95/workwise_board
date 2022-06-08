@@ -16,6 +16,7 @@ export default function Column ({columnIndex, title}) {
             <Candidate key={index} index={index} {...eachCandidate} />
             )
         })
+        
     return (
         <div className='main--item'>
             <h3>{title}</h3>
