@@ -112,9 +112,20 @@ body {
   border: 3px dotted orange;
 }
 
+/* Candidate */
+
+.candidate {
+  background: var(--color--background--highlight);
+  padding: 1em;
+  position: relative;
+  border-radius: 4px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 /* Input */
-
-
 
 .input {
   position: fixed;
@@ -139,9 +150,10 @@ body {
 
 .input--item {
   border-radius: 4px;
-  height: 400px;
   background: white;
   padding: 2em;
+  padding-top: 4em;
+  position: relative;
 }
 
 .input--label {
@@ -160,11 +172,8 @@ body {
   border-radius: 4px;
 }
 
-.input--field:last-child {
-  margin-bottom: 2em;
-}
-
 .input--submit {
+  margin-top: 2.5em;
   -webkit-box-align: center;
   align-items: center;
   cursor: pointer;
@@ -188,6 +197,15 @@ body {
   width: 100%;
 }
 
+.input--exit {
+  position: absolute;
+  transform: scale(1.2);
+  top: 2em;
+  right: 2em;
+  color: var(--color--dark);
+  cursor: pointer;
+}
+
 /* Fonts */
 
 .bold {
@@ -209,3 +227,25 @@ h3 {
   font-weight: var(--fw--bigger);
 }
 
+.candidate--text {
+  margin-bottom: 0.5em;
+}
+
+.candidate--text:last-child {
+  margin-bottom: 0;
+}
+
+.candidate--icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.candidate--icon--left {
+  left: 1em;
+}
+
+.candidate--icon--right {
+  right: 1em;
+}

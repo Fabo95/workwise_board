@@ -1,7 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useForm } from 'react-hook-form';
+import { CandidateContext } from '../context/CandidateContext';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
 export default function Input () {
+
+    const {handleAdd} = useContext(CandidateContext)
 
     const {
         register,
@@ -10,20 +16,26 @@ export default function Input () {
       } = useForm();
 
 
-     function onSubmit(data) {
-         console.log(data);
+     function onSubmit(candidate) {
+        handleAdd(candidate)
+        document.getElementById("root").classList.remove("show")
+
     } 
 
+    function handleClick () {
+        document.getElementById("root").classList.remove("show")
+    }
 
     return (
         <div className='input'>
             <div className='input--item'>
+            <FontAwesomeIcon onClick={handleClick} className='input--exit' icon={faXmark} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label className='input--label'>Vorname:</label>
-                <input className='input--field' {...register('firstName', { required: true })} />
+                <input className='input--field' {...register('firstname', { required: true })} />
                 {errors.firstname && <p>Du hast vergessen den Vornamen anzugeben </p>}
                 <label className='input--label'>Nachname:</label>
-                <input className='input--field' {...register('lastName', { required: true })} />
+                <input className='input--field' {...register('lastname', { required: true })} />
                 {errors.lastName && <p>Du hast vergessen den Nachnamen anzugeben </p>}
                 <label className='input--label'>Position:</label>
                 <input className='input--field' {...register('position', { required: true })} />

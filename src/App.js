@@ -8,8 +8,8 @@ export default function App () {
 
     const {columnArr} = useContext(CandidateContext)
 
-    {/* eachColumn Index via props an <Column /> */}
-    const columnEl = columnArr.map((eachColumn, index ) => <Column key={index} index = {index} title = {eachColumn}/>)
+    {/* columnIndex via props an <Column /> */}
+    const columnEl = columnArr.map((eachColumn, index ) => <Column key={index} columnIndex = {index} title = {eachColumn}/>)
 
     return (
         <>
