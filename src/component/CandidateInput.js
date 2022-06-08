@@ -5,9 +5,11 @@ import { CandidateContext } from '../context/CandidateContext';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faXmark} from '@fortawesome/free-solid-svg-icons';
 
-export default function Input () {
+export default function Input ({isCandidateInput, handleCandidateInput}) {
 
     const {handleAdd} = useContext(CandidateContext)
+
+    const classInput = isCandidateInput && "input--candidate"
 
     const {
         register,
@@ -20,16 +22,16 @@ export default function Input () {
      function onSubmit(candidate) {
         handleAdd(candidate)
         reset()
-        document.getElementById("root").classList.remove("show--candidate--input")
+        handleCandidateInput()
 
     } 
 
     function handleExit () {
-        document.getElementById("root").classList.remove("show--candidate--input")
+        handleCandidateInput()
     }
 
     return (
-        <div className='input input--candidate'>
+        <div className={`input ${classInput}`}>
             <div className='input--item'>
             <FontAwesomeIcon onClick={handleExit} className='input--exit' icon={faXmark} />
             <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,23 +1,44 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useRef} from "react";
 
 const CandidateContext = React.createContext()
 
 function CandidateContextProvider ({children}) {
 
-        const [columnArr, setColumnArr] = useState(["Add..."])
+        const [columnArr, setColumnArr] = useState(() => {
+            return (
+                JSON.parse(localStorage.getItem("columnArr"))?
+                JSON.parse(localStorage.getItem("columnArr")):
+                []
+            )
+        })
 
-        const [candidateArr, setCandidateArr] = useState([])
+        const [candidateArr, setCandidateArr] = useState(() => {
+            return (
+                JSON.parse(localStorage.getItem("candidateArr"))?
+                JSON.parse(localStorage.getItem("candidateArr")):
+                []
+            )
+        })
+        let ref = useRef(false)
+
+        useEffect (() => {
+            if (ref.current) {
+                localStorage.setItem("columnArr", JSON.stringify(columnArr))
+                localStorage.setItem("candidateArr", JSON.stringify(candidateArr))
+            }
+
+            else {
+                ref.current = true
+            }
+            
+        }, [columnArr, candidateArr])
 
         {/* fügt Column hinzu */}
         function handleColumn ({columnname}) {
             setColumnArr(prevColumnArr => {
-                const newColumArr = prevColumnArr.filter(column => {
-                    return column !== "Add..."
-                })
-                return [...newColumArr, columnname]
+                return [...prevColumnArr, columnname]
             })
         }
-
 
         {/* fügt Candidate hinzu */}
         function handleAdd (candidate) {
