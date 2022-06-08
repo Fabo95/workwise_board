@@ -55,12 +55,11 @@ h1, h2, h3, p {
   --fw--bigger: 600;
   --fw--big: 700;
 
-  --color--dark--darker: #593C3B;
-  --color--dark: #D9534F;
-  --color--text: #222222;
-  --color--text--light: #6E6E6E;
-  --color--light--lighter: #fff;
+  --color--red: rgb(216, 27, 93);
+  --color--dark: #263238;
   --color--light: rgba(253,253,253);
+  --color--background: rgba(195, 195, 195, 0.7) 20%;
+  --color--background--highlight: rgb(240, 243, 245);
 
   --lspacing--small: 0.3px;
   --lspacing--reg: 0.5px; 
@@ -88,8 +87,8 @@ h1, h2, h3, p {
 
 body {
   margin: 0;
-  background: var(--color--light--lighter);
-  color: var(--color--text);
+  background: var(--color--light);
+  color: var(--color--dark);
   font-family: 'Manrope';
   -ms-user-select: None;
   -moz-user-select: None;
@@ -111,6 +110,82 @@ body {
 .main--item {
   width: 20%;
   border: 3px dotted orange;
+}
+
+/* Input */
+
+
+
+.input {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color--background);
+  visibility: hidden;
+  transform: scale(0);
+  transition: 300ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.show .input {
+  visibility: visible;
+  transform: scale(1);
+  transition: 300ms;
+}
+
+.input--item {
+  border-radius: 4px;
+  height: 400px;
+  background: white;
+  padding: 2em;
+}
+
+.input--label {
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+.input--field {
+  all: unset;
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+  padding: 0.3em 0.5em;
+  margin-bottom: 1em;
+  background: var(--color--background--highlight);
+  border-radius: 4px;
+}
+
+.input--field:last-child {
+  margin-bottom: 2em;
+}
+
+.input--submit {
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-box-pack: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 40px;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background: rgb(216, 27, 93);
+  border: none;
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  height: 40px;
+  width: 100%;
 }
 
 /* Fonts */

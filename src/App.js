@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {CandidateContext} from "./context/CandidateContext"
+import Input from './component/Input'
 
 import Column from './component/Column'
 
@@ -7,9 +8,8 @@ export default function App () {
 
     const {columnArr} = useContext(CandidateContext)
 
-    const columnEl = columnArr.map(column => {
-        return <Column title = {column}/>
-    })
+    {/* eachColumn Index via props an <Column /> */}
+    const columnEl = columnArr.map((eachColumn, index ) => <Column key={index} index = {index} title = {eachColumn}/>)
 
     return (
         <>
@@ -17,6 +17,7 @@ export default function App () {
             <main className='main'>
                 {columnEl}
             </main>
+            <Input />
         </>
     )
 }

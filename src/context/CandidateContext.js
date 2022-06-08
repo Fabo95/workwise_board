@@ -6,10 +6,10 @@ function CandidateContextProvider ({children}) {
 
         const [columnArr, setColumnArr] = useState(["Bewerber", "Kennenlernen", "Probearbeit", "Entscheidung", "Abgeschlossen"])
 
-        const [candidateArr, setCandidateArr] = useState([])
+        const [candidateArr, setCandidateArr] = useState([{lastname: "Fabian", firstname: "Hinz", position: "Frontend"}])
 
         return (
-            <CandidateContext.Provider value={{columnArr}}>
+            <CandidateContext.Provider value={{columnArr, candidateArr}}>
                 {children}
             </CandidateContext.Provider>
         )
