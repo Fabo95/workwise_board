@@ -12,12 +12,14 @@ export default function Input () {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
       } = useForm();
 
 
      function onSubmit(candidate) {
         handleAdd(candidate)
+        reset()
         document.getElementById("root").classList.remove("show--candidate--input")
 
     } 

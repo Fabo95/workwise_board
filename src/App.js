@@ -16,6 +16,7 @@ export default function App () {
         document.getElementById("root").classList.add("show--candidate--input")
     }
 
+
     return (
         <>
             <h1>Dashboard</h1>
@@ -23,7 +24,7 @@ export default function App () {
                 {columnEl}  
             </main>
             <div className='container'>
-                <button className='btn--add' onClick={handleCandidateInput}>Bewerber hinzufügen</button>
+                <button disabled={columnArr.includes("Add...")} className='btn--add' onClick={handleCandidateInput}>Bewerber hinzufügen</button>
             </div>
             <CandidateInput />
             <ColumnInput />

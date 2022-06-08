@@ -12,12 +12,14 @@ export default function Input () {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
       } = useForm();
 
 
      function onSubmit(columnname) {
         handleColumn(columnname)
+        reset()
         document.getElementById("root").classList.remove("show--column--input")
 
     } 

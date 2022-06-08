@@ -250,6 +250,10 @@ body {
   width: 100%;
 }
 
+.btn--add:disabled {
+  cursor: not-allowed;
+}
+
 /* Fonts */
 
 .bold {
