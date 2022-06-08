@@ -1,13 +1,136 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* manrope-300 - latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+       url('./fonts/manrope-v12-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/manrope-v12-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* manrope-regular - latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./fonts/manrope-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/manrope-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* manrope-600 - latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('./fonts/manrope-v12-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/manrope-v12-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* manrope-700 - latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('./fonts/manrope-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/manrope-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, p {
+  margin: 0;
 }
+
+:root {
+  --fs--small: 0.9rem;
+  --fs--body: 1rem;
+  --fs--teaser: 1.375rem;
+  --fs--h3: 1.5rem;
+  --fs--h2: 2.25rem;
+  --fs--h1: 3.625rem;
+
+  --fw--light: 300;
+  --fw--normal: 400;
+  --fw--bigger: 600;
+  --fw--big: 700;
+
+  --color--dark--darker: #593C3B;
+  --color--dark: #D9534F;
+  --color--text: #222222;
+  --color--text--light: #6E6E6E;
+  --color--light--lighter: #fff;
+  --color--light: rgba(253,253,253);
+
+  --lspacing--small: 0.3px;
+  --lspacing--reg: 0.5px; 
+  --line--height--small: 1.4;
+}
+
+
+@media (max-width: 1000px) {
+
+  :root {
+    --fs--teaser: 1.25rem;
+    --fs--h3: 1.4rem;
+    --fs--h2: 1.8rem;
+    --fs--h1: 2.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+
+  :root {
+    --fs--h1: 2rem;
+  }
+}
+
+
+body {
+  margin: 0;
+  background: var(--color--light--lighter);
+  color: var(--color--text);
+  font-family: 'Manrope';
+  -ms-user-select: None;
+  -moz-user-select: None;
+  -webkit-user-select: None;
+  user-select: None;
+  hyphens: auto;
+  text-align: center;
+}
+
+/* Main */
+
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid red;
+}
+.main--item {
+  width: 20%;
+  border: 3px dotted orange;
+}
+
+/* Fonts */
+
+.bold {
+  font-weight: var(--fw--bigger);
+  display: block;
+}
+
+h1 {
+  font-size: var(--fs--h1);
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: var(--fs--h2);
+}
+
+h3 {
+  font-size: var(--fs--h3);
+  font-weight: var(--fw--bigger);
+}
+
