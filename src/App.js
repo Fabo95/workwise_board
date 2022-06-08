@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import {CandidateContext} from "./context/CandidateContext"
-import Input from './component/Input'
+import CandidateInput from './component/CandidateInput'
+import ColumnInput from "./component/ColumnInput"
 
 import Column from './component/Column'
 
@@ -11,13 +12,23 @@ export default function App () {
     {/* columnIndex via props an <Column /> */}
     const columnEl = columnArr.map((eachColumn, index ) => <Column key={index} columnIndex = {index} title = {eachColumn}/>)
 
+    function handleCandidateInput () {
+        document.getElementById("root").classList.add("show--candidate--input")
+    }
+
     return (
         <>
             <h1>Dashboard</h1>
             <main className='main'>
-                {columnEl}
+                {columnEl}  
             </main>
-            <Input />
+            <div className='container'>
+                <button className='btn--add' onClick={handleCandidateInput}>Bewerber hinzufügen</button>
+            </div>
+            <CandidateInput />
+            <ColumnInput />
+
+            
         </>
     )
 }

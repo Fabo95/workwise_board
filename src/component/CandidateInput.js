@@ -18,18 +18,18 @@ export default function Input () {
 
      function onSubmit(candidate) {
         handleAdd(candidate)
-        document.getElementById("root").classList.remove("show")
+        document.getElementById("root").classList.remove("show--candidate--input")
 
     } 
 
-    function handleClick () {
-        document.getElementById("root").classList.remove("show")
+    function handleExit () {
+        document.getElementById("root").classList.remove("show--candidate--input")
     }
 
     return (
-        <div className='input'>
+        <div className='input input--candidate'>
             <div className='input--item'>
-            <FontAwesomeIcon onClick={handleClick} className='input--exit' icon={faXmark} />
+            <FontAwesomeIcon onClick={handleExit} className='input--exit' icon={faXmark} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label className='input--label'>Vorname:</label>
                 <input className='input--field' {...register('firstname', { required: true })} />

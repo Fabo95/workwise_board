@@ -98,6 +98,13 @@ body {
   text-align: center;
 }
 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
 /* Main */
 
 .main {
@@ -105,11 +112,15 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  border: 1px solid red;
 }
 .main--item {
   width: 20%;
-  border: 3px dotted orange;
+}
+
+.main--item--flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Candidate */
@@ -127,7 +138,7 @@ body {
 
 /* Input */
 
-.input {
+.input  {
   position: fixed;
   top: 0;
   left: 0;
@@ -142,7 +153,13 @@ body {
   justify-content: center;
 }
 
-.show .input {
+.show--candidate--input .input--candidate {
+  visibility: visible;
+  transform: scale(1);
+  transition: 300ms;
+}
+
+.show--column--input .input--column {
   visibility: visible;
   transform: scale(1);
   transition: 300ms;
@@ -206,6 +223,33 @@ body {
   cursor: pointer;
 }
 
+/* Button */
+
+.btn--add {
+  margin-top: 2.5em;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-box-pack: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 40px;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background: rgb(216, 27, 93);
+  border: none;
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  height: 40px;
+  width: 100%;
+}
+
 /* Fonts */
 
 .bold {
@@ -235,6 +279,8 @@ h3 {
   margin-bottom: 0;
 }
 
+/* Icons */
+
 .candidate--icon {
   position: absolute;
   top: 50%;
@@ -248,4 +294,17 @@ h3 {
 
 .candidate--icon--right {
   right: 1em;
+}
+
+.candidate--icon--remove {
+  top: 1em;
+  right: 1em;
+}
+
+.plus--icon {
+  color: var(--color--red);
+  font-size: var(--fs--h3);
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 0.5em;
 }

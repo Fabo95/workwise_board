@@ -1,12 +1,22 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState} from "react";
 
 const CandidateContext = React.createContext()
 
 function CandidateContextProvider ({children}) {
 
-        const [columnArr, setColumnArr] = useState(["Bewerber", "Kennenlernen", "Probearbeit", "Entscheidung", "Abgeschlossen"])
+        const [columnArr, setColumnArr] = useState(["Add..."])
 
         const [candidateArr, setCandidateArr] = useState([])
+
+        {/* fügt Column hinzu */}
+        function handleColumn ({columnname}) {
+            setColumnArr(prevColumnArr => {
+                const newColumArr = prevColumnArr.filter(column => {
+                    return column !== "Add..."
+                })
+                return [...newColumArr, columnname]
+            })
+        }
 
 
         {/* fügt Candidate hinzu */}
@@ -38,8 +48,17 @@ function CandidateContextProvider ({children}) {
             })
         }
 
+        {/* removed einen Candidate*/}
+        function handleRemove (candidateIndex) {
+            setCandidateArr(prevCandidateArr => {
+                return (prevCandidateArr.filter((candidate, index) => {
+                    return (index !== candidateIndex)
+                }))
+            })
+        }
+
         return (
-            <CandidateContext.Provider value={{columnArr, candidateArr, handleAdd, handleFurther, handleBack}}>
+            <CandidateContext.Provider value={{columnArr, candidateArr, handleAdd, handleFurther, handleBack, handleRemove, handleColumn}}>
                 {children}
             </CandidateContext.Provider>
         )
