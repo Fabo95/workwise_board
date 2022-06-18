@@ -13,8 +13,6 @@ export default function App () {
     const [isCandidateInput, setIsCandidateInput] = useState(false)
     const [isColumnInput, setIsColumnInput] = useState(false)
 
-    console.log(isColumnInput)
-
     {/* columnIndex via props an <Column /> */}
     const columnEl = columnArr.map((eachColumn, index ) => <Column key={index} columnIndex = {index} title = {eachColumn}/>)
 
